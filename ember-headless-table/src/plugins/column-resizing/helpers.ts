@@ -3,7 +3,7 @@ import { htmlSafe } from '@ember/template';
 import { meta } from '../-private/base';
 import { ColumnResizing } from './plugin';
 
-import type { Column } from '[public-types]';
+import type { Column, Tabel } from '[public-types]';
 
 /**
  * The column actively being resized by the user.
@@ -31,6 +31,9 @@ export const canShrink = (column: Column) => meta.forColumn(column, ColumnResizi
  */
 export const hasResizeHandle = (column: Column) =>
   meta.forColumn(column, ColumnResizing).hasResizeHandle;
+
+export const canOverflow = (table: Table) =>
+  meta.forTable(table, ColumnResizing).canOverflow;
 
 /**
  * In this plugin (by default), styles are only applied to the headers automatically.
